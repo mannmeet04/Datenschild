@@ -1,0 +1,21 @@
+# Backend
+backend/target/
+backend/data/
+*.log
+
+# Flutter
+app/.dart_tool/
+app/build/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Secrets
+.env
+*.jks
+*.keystore
+key.properties

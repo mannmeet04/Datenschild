@@ -1,0 +1,79 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend testen
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      - run: mvn -B test
+
+  app:
+    name: App testen und bauen
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    env:
+      # Optional unter Settings → Secrets and variables → Actions → Variables setzen,
+      # z. B. http://192.168.178.20:8080 (PC im WLAN) oder später https://api.deine-domain.de
+      API_BASE_URL: ${{ vars.API_BASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+
+      - name: Android-APK bauen (zum Testen auf dem Handy)
+        run: flutter build apk --debug --dart-define=API_BASE_URL=$API_BASE_URL
+      - uses: actions/upload-artifact@v4
+        with:
+          name: datenschild-android-apk
+          path: app/build/app/outputs/flutter-apk/app-debug.apk
+
+      - name: Web-Vorschau bauen
+        # Ohne API_BASE_URL spricht die Web-Version http://localhost:8080 an (dein lokales Backend)
+        run: flutter build web --release --base-href "/${{ github.event.repository.name }}/" --dart-define=API_BASE_URL=$API_BASE_URL
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app/build/web
+
+  pages:
+    name: Web-Vorschau veröffentlichen
+    needs: app
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

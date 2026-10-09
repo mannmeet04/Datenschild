@@ -1,0 +1,14 @@
+# Nur für die lokale Entwicklung. Niemals in Produktion verwenden.
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/datenschild-dev
+    username: sa
+    password: ""
+
+app:
+  cors:
+    # Flutter Web lokal und die Web-Vorschau auf GitHub Pages
+    allowed-origin-patterns: http://localhost:*,http://127.0.0.1:*,https://*.github.io
+  crypto:
+    # Fester Entwicklungsschlüssel – in Produktion ersetzen!
+    master-key: ZGV2LW9ubHkta2V5LWRvLW5vdC11c2UtaW4tcHJvZHVjdGlvbiEhISE=

@@ -1,0 +1,62 @@
+DATENSCHUTZERKLÄRUNG
+
+!!! VORLAGE – vor Veröffentlichung alle [Platzhalter] ausfüllen und anwaltlich prüfen lassen !!!
+
+Stand: [Datum]
+
+1. Verantwortlicher
+[Vor- und Nachname / Firma]
+[Straße Hausnummer]
+[PLZ Ort]
+E-Mail: [datenschutz@deine-domain.de]
+
+2. Grundsätze
+Datenschild ist so gebaut, dass möglichst wenige Daten anfallen:
+– Es gibt kein Benutzerkonto. Die App erhält ein zufälliges Geräte-Kennzeichen.
+– Es gibt kein Tracking, keine Analyse-Tools und keine Werbung.
+– Passwörter werden nie übertragen oder gespeichert.
+
+3. Welche Daten verarbeiten wir?
+
+3.1 Passwortprüfung
+Dein Passwort wird ausschließlich auf deinem Gerät in einen SHA-1-Hash umgewandelt. Nur die ersten 5 Zeichen dieses Hashes werden an den Dienst „Pwned Passwords“ (Have I Been Pwned, Troy Hunt, Australien, ausgeliefert über Cloudflare) übermittelt. Aus diesen 5 Zeichen lässt sich das Passwort nicht ermitteln. Dabei wird technisch bedingt deine IP-Adresse an den Dienst übertragen.
+Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Bereitstellung der von dir angeforderten Funktion).
+
+3.2 Überwachung von E-Mail-Adressen
+Wenn du eine E-Mail-Adresse hinzufügst, verarbeiten wir:
+– die E-Mail-Adresse (verschlüsselt gespeichert, AES-256),
+– einen Bestätigungscode (nur als Hash gespeichert, 15 Minuten gültig),
+– die Namen der Datenlecks, in denen die Adresse vorkommt,
+– Zeitpunkte von Anlage, Bestätigung und letzter Prüfung.
+Zweck: Prüfung auf Datenlecks und Benachrichtigung bei neuen Funden.
+Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.
+
+Zur Prüfung übermitteln wir die E-Mail-Adresse an [XposedOrNot (xposedornot.com) / Have I Been Pwned (haveibeenpwned.com, Australien)]. Bei einer Übermittlung in ein Land außerhalb der EU stützen wir uns auf [Angemessenheitsbeschluss / Standardvertragsklauseln – prüfen!].
+
+Ergebnisse zeigen wir erst an, nachdem du per Code bestätigt hast, dass dir die Adresse gehört.
+
+3.3 Benachrichtigungen per E-Mail
+Zur Bestätigung und bei neuen Datenlecks senden wir dir E-Mails über [E-Mail-Dienstleister, Sitz]. Mit ihm besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO.
+
+3.4 Server und Hosting
+Unser Server steht bei [Hoster, z. B. Hetzner Online GmbH, Gunzenhausen] in der EU. Mit dem Hoster besteht ein Vertrag zur Auftragsverarbeitung. Beim Aufruf verarbeitet der Server technisch notwendig deine IP-Adresse; sie wird nicht dauerhaft gespeichert, sondern nur kurzzeitig im Arbeitsspeicher zum Schutz vor Missbrauch (Begrenzung der Anfragen).
+Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Sicherheit und Missbrauchsschutz).
+
+3.5 Daten nur auf deinem Gerät
+Erledigte Schritte des Handlungsplans und dein Name für DSGVO-Vorlagen werden nur lokal auf deinem Gerät gespeichert und nie an uns übertragen.
+
+4. Speicherdauer
+– Nicht bestätigte Adressen: automatische Löschung nach 24 Stunden.
+– Bestätigte Adressen: bis du die Überwachung beendest oder alle Daten löschst.
+– Geräte, die 12 Monate nicht genutzt wurden, werden samt allen Adressen automatisch gelöscht.
+
+5. Deine Rechte
+Du hast das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21 DSGVO).
+Löschen kannst du jederzeit selbst in der App unter „Mehr → Alle meine Daten löschen“.
+Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, z. B. bei [zuständige Landesbehörde].
+
+6. Sicherheit
+Die Übertragung erfolgt ausschließlich verschlüsselt (TLS). E-Mail-Adressen werden verschlüsselt gespeichert, das Geräte-Kennzeichen und Bestätigungscodes nur als Hash.
+
+7. Keine automatisierte Entscheidungsfindung
+Der Sicherheits-Score wird nur auf deinem Gerät berechnet und dient deiner Information. Es findet kein Profiling statt.

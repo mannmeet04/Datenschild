@@ -1,0 +1,26 @@
+IMPRESSUM
+
+!!! VORLAGE – vor Veröffentlichung alle [Platzhalter] ausfüllen !!!
+
+Angaben gemäß § 5 DDG
+
+[Vor- und Nachname / Firma]
+[Straße Hausnummer]
+[PLZ Ort]
+Deutschland
+
+Kontakt
+E-Mail: [kontakt@deine-domain.de]
+Telefon: [optional, aber eine zweite schnelle Kontaktmöglichkeit ist Pflicht]
+
+[Falls vorhanden: Umsatzsteuer-ID gemäß § 27a UStG: DE…]
+
+Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:
+[Vor- und Nachname, Anschrift wie oben]
+
+Datenquellen
+Leak-Daten: [XposedOrNot (xposedornot.com) / Have I Been Pwned (haveibeenpwned.com), CC BY 4.0]
+Passwortprüfung: Pwned Passwords von Have I Been Pwned, CC BY 4.0
+
+Haftungshinweis
+Die Hinweise und Vorlagen in dieser App dienen der allgemeinen Information und ersetzen keine Rechtsberatung im Einzelfall. Für die Vollständigkeit der Leak-Daten Dritter übernehmen wir keine Gewähr.

@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: datenschild
+  profiles:
+    default: dev
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+server:
+  # Hinter einem Reverse-Proxy (TLS) betreiben, damit die echte Client-IP fürs Rate-Limiting ankommt
+  forward-headers-strategy: native
+  error:
+    include-message: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+app:
+  crypto:
+    # Base64, mindestens 32 Byte. In Produktion IMMER per Umgebungsvariable APP_CRYPTO_MASTER_KEY setzen.
+    master-key: ${APP_CRYPTO_MASTER_KEY:}
+  breach:
+    # xon = XposedOrNot (kostenlos), hibp = Have I Been Pwned (API-Key nötig)
+    provider: ${APP_BREACH_PROVIDER:xon}
+    hibp-api-key: ${APP_HIBP_API_KEY:}
+    user-agent: Datenschild/0.1 (+https://example.org/kontakt)
+  monitor:
+    cron: "0 0 4 * * *"
+    # Pause zwischen zwei Abfragen beim Anbieter (Rate-Limits respektieren)
+    delay-ms: 2000
+  limits:
+    max-emails-per-device: 10
+    verification-ttl-minutes: 15
+    max-verify-attempts: 5
+    unverified-retention-hours: 24
+    inactive-device-retention-days: 365
+  mail:
+    enabled: ${APP_MAIL_ENABLED:false}
+    from: ${APP_MAIL_FROM:no-reply@example.org}
